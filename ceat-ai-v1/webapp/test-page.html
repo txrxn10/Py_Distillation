@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generation API Integration Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.pass { background: #d4edda; color: #155724; }
+        .status.fail { background: #f8d7da; color: #721c24; }
+        .status.pending { background: #fff3cd; color: #856404; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        button:disabled { background: #6c757d; cursor: not-allowed; }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        .api-test {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .response {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 3px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Image Generation API Integration Test</h1>
+        <p>This page provides manual testing tools for the image generation API integration.</p>
+        
+        <div class="test-section">
+            <h3>📋 Integration Checklist</h3>
+            <div id="checklist">
+                <div>✅ API service file created (webapp/lib/api.ts) <span class="status pass">PASS</span></div>
+                <div>✅ TypeScript types defined (webapp/lib/types.ts) <span class="status pass">PASS</span></div>
+                <div>✅ Component integration completed <span class="status pass">PASS</span></div>
+                <div>✅ Error handling implemented <span class="status pass">PASS</span></div>
+                <div>✅ Request cancellation implemented <span class="status pass">PASS</span></div>
+                <div>✅ Backend API endpoint updated <span class="status pass">PASS</span></div>
+                <div>✅ Port configuration fixed (5000) <span class="status pass">PASS</span></div>
+                <div>⏳ Frontend server running <span class="status pending">PENDING</span></div>
+                <div>⏳ Backend server running <span class="status pending">PENDING</span></div>
+            </div>
+        </div>
+
+        <div class="api-test">
+            <h3>🔌 Direct API Test</h3>
+            <p>Test the backend API directly before testing the frontend integration.</p>
+            
+            <div class="form-group">
+                <label>API URL:</label>
+                <input type="text" id="apiUrl" value="http://localhost:5000/api/image/generate" />
+            </div>
+            
+            <div class="form-group">
+                <label>Prompt:</label>
+                <textarea id="testPrompt" placeholder="Enter a test prompt...">A beautiful sunset over mountains with vibrant colors</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Aspect Ratio:</label>
+                <select id="testRatio">
+                    <option value="1:1">Square (1:1)</option>
+                    <option value="16:9">Landscape (16:9)</option>
+                    <option value="9:16">Portrait (9:16)</option>
+                    <option value="4:3">Standard (4:3)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Resolution:</label>
+                <select id="testResolution">
+                    <option value="512x512">512x512</option>
+                    <option value="1024x1024">1024x1024</option>
+                    <option value="1536x1536">1536x1536</option>
+                    <option value="2048x2048">2048x2048</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Style:</label>
+                <select id="testStyle">
+                    <option value="realistic">Realistic</option>
+                    <option value="artistic">Artistic</option>
+                    <option value="cartoon">Cartoon</option>
+                    <option value="abstract">Abstract</option>
+                </select>
+            </div>
+            
+            <button onclick="testAPI()" id="testBtn">Test API</button>
+            <button onclick="clearLog()">Clear Log</button>
+            
+            <div id="apiResponse" class="response" style="display: none;"></div>
+            <div id="testLog" class="log"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>🎯 Frontend Integration Tests</h3>
+            <p>These tests should be run on the actual Next.js application page.</p>
+            
+            <button onclick="showInstructions()">Show Test Instructions</button>
+            <button onclick="copyTestScript()">Copy Test Script</button>
+            
+            <div id="instructions" style="display: none; margin-top: 15px;">
+                <h4>Manual Testing Steps:</h4>
+                <ol>
+                    <li>Start the backend server: <code>cd api && python run.py</code></li>
+                    <li>Start the frontend server: <code>cd webapp && npm run dev</code></li>
+                    <li>Navigate to the image generation page</li>
+                    <li>Open browser developer console (F12)</li>
+                    <li>Copy and paste the test script from test-integration.js</li>
+                    <li>Run: <code>IntegrationTests.runAllTests()</code></li>
+                    <li>Verify all tests pass</li>
+                </ol>
+                
+                <h4>Key Features to Test:</h4>
+                <ul>
+                    <li>✅ Clear button clears prompt and images</li>
+                    <li>✅ Random button generates random prompts</li>
+                    <li>✅ Rewrite button enhances existing prompts</li>
+                    <li>✅ Filter selections work (aspect ratio, resolution, style)</li>
+                    <li>✅ Generate button disabled when no prompt</li>
+                    <li>✅ Loading state during API calls</li>
+                    <li>✅ Error handling and display</li>
+                    <li>✅ Image grid layout and hover actions</li>
+                    <li>✅ Request cancellation works</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>📊 Test Results Summary</h3>
+            <div id="testResults">
+                <p>Run tests to see results here...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let testLog = [];
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}`;
+            testLog.push(logEntry);
+            
+            const logElement = document.getElementById('testLog');
+            logElement.innerHTML = testLog.join('\n');
+            logElement.scrollTop = logElement.scrollHeight;
+            
+            console.log(message);
+        }
+
+        function clearLog() {
+            testLog = [];
+            document.getElementById('testLog').innerHTML = '';
+            document.getElementById('apiResponse').style.display = 'none';
+        }
+
+        async function testAPI() {
+            const btn = document.getElementById('testBtn');
+            btn.disabled = true;
+            btn.textContent = 'Testing...';
+            
+            const url = document.getElementById('apiUrl').value;
+            const prompt = document.getElementById('testPrompt').value;
+            const ratio = document.getElementById('testRatio').value;
+            const resolution = document.getElementById('testResolution').value;
+            const style = document.getElementById('testStyle').value;
+            
+            const requestData = { prompt, ratio, resolution, style };
+            
+            log('🚀 Starting API test...');
+            log(`URL: ${url}`);
+            log(`Request: ${JSON.stringify(requestData, null, 2)}`);
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+                
+                log(`Response status: ${response.status} ${response.statusText}`);
+                
+                const data = await response.json();
+                
+                document.getElementById('apiResponse').style.display = 'block';
+                document.getElementById('apiResponse').textContent = JSON.stringify(data, null, 2);
+                
+                if (response.ok && data.success) {
+                    log(`✅ Success! Generated ${data.images?.length || 0} images`);
+                    log(`Message: ${data.message || 'No message'}`);
+                    
+                    // Test image format
+                    if (data.images && data.images.length > 0) {
+                        data.images.forEach((img, i) => {
+                            if (img.startsWith('data:image/')) {
+                                log(`✅ Image ${i+1}: Valid base64 data URL`);
+                            } else {
+                                log(`ℹ️ Image ${i+1}: ${img.substring(0, 50)}...`);
+                            }
+                        });
+                    }
+                } else {
+                    log(`❌ API Error: ${data.error || 'Unknown error'}`);
+                    log(`Error code: ${data.code || 'No code'}`);
+                }
+                
+            } catch (error) {
+                log(`❌ Request failed: ${error.message}`);
+                
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    log('💡 This usually means the backend server is not running');
+                    log('💡 Start the server with: cd api && python run.py');
+                }
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Test API';
+            }
+        }
+
+        function showInstructions() {
+            const instructions = document.getElementById('instructions');
+            instructions.style.display = instructions.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function copyTestScript() {
+            const script = `
+// Copy this script and paste it in the browser console on the image generation page
+// Then run: IntegrationTests.runAllTests()
+
+// The test script is available in webapp/test-integration.js
+// Load it by copying the entire contents of that file into the console
+
+console.log("📋 To run integration tests:");
+console.log("1. Copy contents of webapp/test-integration.js");
+console.log("2. Paste in browser console");
+console.log("3. Run: IntegrationTests.runAllTests()");
+            `;
+            
+            navigator.clipboard.writeText(script).then(() => {
+                alert('Test script instructions copied to clipboard!');
+            }).catch(() => {
+                alert('Could not copy to clipboard. Please manually copy the script from test-integration.js');
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🧪 Integration test page loaded');
+            log('Ready to test the image generation API integration');
+        });
+    </script>
+</body>
+</html>

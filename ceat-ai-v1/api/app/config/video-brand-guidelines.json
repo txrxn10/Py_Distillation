@@ -1,0 +1,34 @@
+{
+  "brand": "CEAT",
+  "identity": {
+    "theme": "youthful, fresh, energetic, and confident",
+    "tagline": "Take it on",
+    "inspired_by": ["roads", "motion", "dynamism"]
+  },
+  "colors": {
+    "primary": {
+      "blue": "#0055aa",
+      "orange": "#f5822d"
+    },
+    "secondary": ["#708090", "#bdb76b", "#556b2f"]
+  },
+  "cinematography": {
+    "camera_work": "unusual and dynamic",
+    "shot_selection": "extreme close-up shots for product focus",
+    "motion": "convey movement and energy, nothing static"
+  },
+  "composition": {
+    "use_logo_banner": false,
+    "blue_band": false,
+    "logo_in_band": false,
+    "aspect_ratio": "1:4"
+  },
+  "typography": {
+    "font": "Trebuchet MS"
+  },
+  "constraints": {
+    "avoid_cliches": ["truckers", "bikes"],
+    "enforce_logo_fidelity": true,
+    "allow_logo_generation": false
+  }
+}

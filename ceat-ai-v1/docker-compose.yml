@@ -1,0 +1,33 @@
+services:
+  web:
+    build: ./webapp
+    env_file:
+      - .env  
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./webapp:/webapp  
+      - webapp_node_modules:/webapp/node_modules
+    command: npm run dev
+
+  api:
+    build: ./api
+    env_file:
+      - .env
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=1
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/service-account.json
+      - PROJECT_ID=${PROJECT_ID:-your-google-cloud-project-id}
+      - LOCATION=${LOCATION:-us-central1}
+      - IMAGE_BUCKET=${IMAGE_BUCKET:-your-project-assets}
+      - MODEL_ID=${MODEL_ID:-gemini-2.5-flash}
+      - MODEL_IMAGEN4_FAST=${MODEL_IMAGEN4_FAST:-imagen-4.0-fast-generate-001}
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./api:/api 
+      - ./service-account.json:/app/service-account.json:ro
+    command: python run.py
+volumes:
+  webapp_node_modules:

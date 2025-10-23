@@ -1,0 +1,32 @@
+Brand: CEAT
+
+Logo:
+	1. Style: Custom, hand-drawn logotype.
+	2. Colors: Ceat Blue (#0055aa) and Ceat Orange (#f5822d).
+	3. Structure: 'C', 'A', 'T' in caps; 'E' as three stacked orange bars (suggests motion).
+	4. Orientation: Horizontal (standard), Vertical (bottom-to-top for vertical applications).
+	5. Clear Space: Equal to the height of the top two orange 'E' bars.
+	6. Aspect Ratio: 1:4 (height:width).
+	7. Minimum Size: 5mm height.
+	8. Usage: Can be on photos, gradients, textures. On light backgrounds, use logo reversed out of Ceat Blue.
+
+Color Palette:
+	1. Primary (Logo): Ceat Blue (#0055aa), Ceat Orange (#f5822d).
+	2. Secondary (Print/Web only, not for logo): Slate, Khaki, Army Green.
+
+Typography:
+	1. Primary: Klavika (Light, Regular, Medium, Bold) for print.
+	2. Digital/System: Trebuchet MS for web, PowerPoint.
+
+Advertising/Layout:
+	1. Blue Band: 15-20% height at bottom, flushed right.
+	2. Logo in Blue Band: 20-30% of band height, 7% from right edge.
+
+Signage:
+	1. Fascia Logo Height: 45% of total sign height.
+	2. Materials: 3M vinyls (Bristol Blue, Orange).
+	3. Positioning (Ratio > 1:3): Logo aligned to the right.
+
+Stationery (Business Card, Letterhead):
+	1. Business Card (90x60mm): Ceat Orange for name/position (front); Ceat Blue background for address (back). Paper: Conqueror Contour Brilliant White or Matte Art Card (300gsm).
+	2. Letterhead: Ceat Blue and Ceat Orange. Paper: Conqueror Contour Brilliant White (100gsm) or Executive Bond (90gsm).  

@@ -1,0 +1,13 @@
+{
+  "brand_name": "CEAT",
+  "logo_usage": {
+    "position": "top-right corner",
+    "space": "leave blank area without logo in image generation"
+  },
+  "Color_Palette":  ["#0055aa", "#f5822d"],
+  "Typography": {
+    "primary_font": "Trebuchet MS",
+    "tone": "bold, confident, reliable",
+    "style": "modern and clean"
+  }  
+}

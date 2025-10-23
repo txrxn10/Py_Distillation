@@ -1,0 +1,92 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-RESTful
+Flask-Cors
+Flask-JWT-Extended
+python-dotenv
+tenacity
+Pillow
+firebase-admin
+requests
+bcrypt
+google-api-core==2.25.1
+    # via
+    #   firebase-admin
+    #   google-api-python-client
+    #   google-cloud-aiplatform
+    #   google-cloud-bigquery
+    #   google-cloud-core
+    #   google-cloud-firestore
+    #   google-cloud-resource-manager
+    #   google-cloud-storage
+google-api-python-client==2.179.0
+    # via firebase-admin
+google-auth==2.40.3
+    # via
+    #   google-api-core
+    #   google-api-python-client
+    #   google-auth-httplib2
+    #   google-cloud-aiplatform
+    #   google-cloud-bigquery
+    #   google-cloud-core
+    #   google-cloud-firestore
+    #   google-cloud-resource-manager
+    #   google-cloud-storage
+    #   google-genai
+google-auth-httplib2==0.2.0
+    # via google-api-python-client
+google-cloud-aiplatform==1.109.0
+    # via veo-app
+google-cloud-bigquery==3.35.1
+    # via google-cloud-aiplatform
+google-cloud-core==2.4.3
+    # via
+    #   google-cloud-bigquery
+    #   google-cloud-firestore
+    #   google-cloud-storage
+google-cloud-firestore==2.21.0 ; platform_python_implementation != 'PyPy'
+    # via firebase-admin
+google-cloud-resource-manager==1.14.2
+    # via google-cloud-aiplatform
+google-cloud-storage==2.19.0
+    # via
+    #   firebase-admin
+    #   google-cloud-aiplatform
+google-crc32c==1.7.1
+    # via
+    #   google-cloud-storage
+    #   google-resumable-media
+google-genai==1.30.0
+    # via
+    #   google-cloud-aiplatform
+    #   veo-app
+google-resumable-media==2.7.2
+    # via
+    #   google-cloud-bigquery
+    #   google-cloud-storage
+googleapis-common-protos==1.70.0
+    # via
+    #   google-api-core
+    #   grpc-google-iam-v1
+    #   grpcio-status
+grpc-google-iam-v1==0.14.2
+    # via google-cloud-resource-manager
+grpcio==1.74.0
+    # via
+    #   google-api-core
+    #   googleapis-common-protos
+    #   grpc-google-iam-v1
+    #   grpcio-status
+grpcio-status==1.74.0
+    # via google-api-core
+marshmallow
+ffmpeg-python
+# opencv-python
+opencv-contrib-python
+numpy
+ultralytics
+
+# Google Cloud / Vertex AI
+# google-cloud-aiplatform
+# google-auth

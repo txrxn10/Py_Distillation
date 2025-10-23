@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match CEAT Tyres branding with orange primary and neutral palette */
+  --background: oklch(0.98 0.005 106.47); /* Light Grey #F9FAFB */
+  --foreground: oklch(0.35 0.015 106.47); /* Dark Grey #4B5563 */
+  --card: oklch(1 0 0); /* White #FFFFFF */
+  --card-foreground: oklch(0.25 0.015 106.47); /* Darker Grey #374151 */
+  --popover: oklch(1 0 0); /* White */
+  --popover-foreground: oklch(0.35 0.015 106.47); /* Dark Grey */
+  --primary: oklch(0.65 0.18 35.66); /* CEAT Orange #FF6A13 */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.25 0.08 264.05); /* Blue #1E3A8A */
+  --secondary-foreground: oklch(1 0 0); /* White */
+  --muted: oklch(0.85 0.005 106.47); /* Light Grey #D1D5DB */
+  --muted-foreground: oklch(0.35 0.015 106.47); /* Dark Grey */
+  --accent: oklch(0.25 0.08 264.05); /* Blue for accents */
+  --accent-foreground: oklch(1 0 0); /* White */
+  --destructive: oklch(0.577 0.245 27.325); /* Red */
+  --destructive-foreground: oklch(1 0 0); /* White */
+  --border: oklch(0.92 0.005 106.47); /* Grey #E5E7EB */
+  --input: oklch(0.98 0.005 106.47); /* Light Grey */
+  --ring: oklch(0.65 0.18 35.66 / 0.5); /* Orange ring with opacity */
+  --chart-1: oklch(0.65 0.18 35.66); /* CEAT Orange */
+  --chart-2: oklch(0.25 0.08 264.05); /* Blue */
+  --chart-3: oklch(0.35 0.015 106.47); /* Dark Grey */
+  --chart-4: oklch(0.85 0.005 106.47); /* Light Grey */
+  --chart-5: oklch(0.98 0.005 106.47); /* White */
+  --radius: 0.5rem; /* Rounded corners */
+  --sidebar: oklch(1 0 0); /* White */
+  --sidebar-foreground: oklch(0.35 0.015 106.47); /* Dark Grey */
+  --sidebar-primary: oklch(0.65 0.18 35.66); /* CEAT Orange */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White */
+  --sidebar-accent: oklch(0.25 0.08 264.05); /* Blue */
+  --sidebar-accent-foreground: oklch(1 0 0); /* White */
+  --sidebar-border: oklch(0.92 0.005 106.47); /* Grey */
+  --sidebar-ring: oklch(0.65 0.18 35.66 / 0.5); /* Orange ring */
+}
+
+.dark {
+  /* Updated dark mode tokens to maintain CEAT branding in dark theme */
+  --background: oklch(0.08 0.005 106.47); /* Dark background */
+  --foreground: oklch(0.95 0.005 106.47); /* Light text */
+  --card: oklch(0.12 0.005 106.47); /* Dark card */
+  --card-foreground: oklch(0.95 0.005 106.47); /* Light card text */
+  --popover: oklch(0.12 0.005 106.47); /* Dark popover */
+  --popover-foreground: oklch(0.95 0.005 106.47); /* Light popover text */
+  --primary: oklch(0.65 0.18 35.66); /* CEAT Orange (same) */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.35 0.08 264.05); /* Lighter Blue */
+  --secondary-foreground: oklch(1 0 0); /* White */
+  --muted: oklch(0.18 0.005 106.47); /* Dark muted */
+  --muted-foreground: oklch(0.65 0.005 106.47); /* Light muted text */
+  --accent: oklch(0.35 0.08 264.05); /* Lighter Blue */
+  --accent-foreground: oklch(1 0 0); /* White */
+  --destructive: oklch(0.55 0.2 27.325); /* Red */
+  --destructive-foreground: oklch(1 0 0); /* White */
+  --border: oklch(0.18 0.005 106.47); /* Dark border */
+  --input: oklch(0.18 0.005 106.47); /* Dark input */
+  --ring: oklch(0.65 0.18 35.66 / 0.5); /* Orange ring */
+  --chart-1: oklch(0.65 0.18 35.66); /* CEAT Orange */
+  --chart-2: oklch(0.35 0.08 264.05); /* Lighter Blue */
+  --chart-3: oklch(0.65 0.005 106.47); /* Light Grey */
+  --chart-4: oklch(0.35 0.005 106.47); /* Medium Grey */
+  --chart-5: oklch(0.18 0.005 106.47); /* Dark Grey */
+  --sidebar: oklch(0.12 0.005 106.47); /* Dark sidebar */
+  --sidebar-foreground: oklch(0.95 0.005 106.47); /* Light sidebar text */
+  --sidebar-primary: oklch(0.65 0.18 35.66); /* CEAT Orange */
+  --sidebar-primary-foreground: oklch(1 0 0); /* White */
+  --sidebar-accent: oklch(0.35 0.08 264.05); /* Lighter Blue */
+  --sidebar-accent-foreground: oklch(1 0 0); /* White */
+  --sidebar-border: oklch(0.18 0.005 106.47); /* Dark border */
+  --sidebar-ring: oklch(0.65 0.18 35.66 / 0.5); /* Orange ring */
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
